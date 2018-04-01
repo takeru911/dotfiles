@@ -33,3 +33,6 @@ zstyle ':completion:*:default' menu select=1
 export HISTFILE=${HOME}/.zsh_history
 export HISTSIZE=1000
 export SAVEHIST=100000
+
+# alias
+alias cgr=cd-gitroot
