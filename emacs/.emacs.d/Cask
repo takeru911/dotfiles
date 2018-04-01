@@ -33,6 +33,7 @@
 (depends-on "flymake")
 (depends-on "flycheck")
 (depends-on "magit")
+(depends-on "flycheck-pos-tip")
 
 ;;; modes
 (depends-on "js2-mode")
