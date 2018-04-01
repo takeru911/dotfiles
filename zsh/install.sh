@@ -1,12 +1,19 @@
-#!/usr/bin/zsh
+#!/bin/zsh
 
+_PID=$$;
+_PPID=$(ps -o ppid -p $_PID | tail -n 1);
+
+if ps -p $_PPID | grep -qs bash ; then
+    echo "bash"
+elif ps -p $_PPID | grep -qs zsh ; then
+    echo "zsh"
+fi
+h=`ps -p $_PPID`
+echo $h
 set -eu
 
-# install prezto
-echo "source ~/.zplug/init.zsh" >> $HOME/.zshrc
-echo "zplug \"sorin-ionescu/prezto\"" >> $HOME/.zshrc
-echo "zplug load --verbose" >>  $HOME/.zshrc
-source $HOME/.zshrc
+# install preztocho 
+source ~/.zshrc
 zplug install
 
 rm $HOME/.zshrc $HOME/.zlogin $HOME/.zlogout $HOME/.zprofile $HOME/.zshenv

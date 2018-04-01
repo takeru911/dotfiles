@@ -17,7 +17,6 @@ zplug "peco/peco", as:command, from:gh-r, use:"*amd64*"
 zplug "zsh-users/zsh-autosuggestions"
 zplug "sorin-ionescu/prezto"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 zplug load
 zstyle ":anyframe:selector:" use fzf
 
