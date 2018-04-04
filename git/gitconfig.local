@@ -1,0 +1,11 @@
+[alias]
+	st = status
+	graph = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %
+	gr = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
+	cm = commit
+	fv = fetch -vp
+	prb = pull --rebase origin master -v
+	pr = pull origin master
+	cb = checkout -b
+	ap = add -p
+
