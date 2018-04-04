@@ -8,4 +8,5 @@
 	pr = pull origin master
 	cb = checkout -b
 	ap = add -p
+	pu = push origin HEAD
 
