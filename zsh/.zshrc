@@ -1,6 +1,7 @@
 # User specific aliases and functions
 export PATH=$PATH:${HOME}/bin
 export PATH=$PATH:${HOME}/.cask/bin
+export PATH=$PATH:${HOME}/.local/bin
 
 # Created by newuser for 5.0.2
 source ~/.zplug/init.zsh
@@ -86,7 +87,7 @@ RPROMPT='`rprompt-git-current-branch`'
 
 # alias
 alias cgr=cd-gitroot
-alias curl=/usr/local/bin/curl
+# alias curl=/usr/local/bin/curl
 ## git alias
 alias mm="git fetch -vp && git pull --rebase origin master"
 

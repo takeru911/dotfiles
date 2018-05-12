@@ -39,7 +39,5 @@
 (depends-on "js2-mode")
 (depends-on "web-mode")
 (depends-on "python-mode")
-(depends-on "typescript")
-;;(depends-on "tss")
 (depends-on "markdown-mode")
 (depends-on "php-mode")
