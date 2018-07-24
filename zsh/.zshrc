@@ -109,3 +109,5 @@ if [ `which pet` ]; then
   zle -N pet-select
   bindkey '^s' pet-select  
 fi
+
+alias history-all="history 1"
