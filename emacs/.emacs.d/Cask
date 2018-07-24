@@ -41,3 +41,4 @@
 (depends-on "python-mode")
 (depends-on "markdown-mode")
 (depends-on "php-mode")
+(depends-on "dockerfile-mode")
