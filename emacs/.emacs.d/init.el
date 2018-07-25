@@ -40,3 +40,4 @@
  '(flymake-errline ((((class color)) (:underline "red"))))
  '(flymake-warnline ((((class color)) (:underline "yellow")))))
 (put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)

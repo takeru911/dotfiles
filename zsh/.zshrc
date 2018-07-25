@@ -109,5 +109,5 @@ if [ `which pet` ]; then
   zle -N pet-select
   bindkey '^s' pet-select  
 fi
-
 alias history-all="history 1"
+export LESS='-g -i -M -R -S -w -z-4 -m'

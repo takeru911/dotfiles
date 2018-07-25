@@ -11,3 +11,6 @@
 	ap = add -p
 	pu = push origin HEAD
 	bye = checkout -- .
+	rh = reset HEAD
+	cmm = chechout master
+	df = diff origin master --name-only
