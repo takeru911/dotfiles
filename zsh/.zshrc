@@ -20,7 +20,6 @@ zplug "sorin-ionescu/prezto"
 
 zplug load
 zstyle ":anyframe:selector:" use fzf
-zstyle ':prezto:module:prompt' theme 'steeef'
 # keybinding
 bindkey '^x^p' history-substring-search-up
 bindkey '^x^n' history-substring-search-down
@@ -31,7 +30,7 @@ bindkey '^x^b' anyframe-widget-checkout-git-branch
 autoload -U compinit
 compinit
 zstyle ':completion:*:default' menu select=1
-
+zstyle ':prezto:module:prompt' theme 'steeef'
 export HISTFILE=${HOME}/.zsh_history
 export HISTSIZE=1000
 export SAVEHIST=100000

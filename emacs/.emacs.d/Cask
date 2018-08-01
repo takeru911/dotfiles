@@ -42,3 +42,4 @@
 (depends-on "markdown-mode")
 (depends-on "php-mode")
 (depends-on "dockerfile-mode")
+(depends-on "go-mode")
