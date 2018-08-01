@@ -1,3 +1,8 @@
+;; Goのパスを通す
+(add-to-list 'exec-path (expand-file-name "/bin/"))
+;; go get で入れたツールのパスを通す
+(add-to-list 'exec-path (expand-file-name "/home/vagrant/go/bin/"))
+
 (add-hook 'go-mode-hook 'flycheck-mode)
 (add-hook 'go-mode-hook (lambda()
        (add-hook 'before-save-hook' 'gofmt-before-save)
