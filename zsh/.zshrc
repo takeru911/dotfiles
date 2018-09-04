@@ -14,7 +14,7 @@ zplug "zsh-users/zsh-history-substring-search", hook-build:"__zsh_version 4.3"
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "zsh-users/zsh-completions"
 zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:fzf
-zplug "peco/peco", as:command, from:gh-r, use:"*amd64*"
+#zplug "peco/peco", as:command, from:gh-r, use:"*amd64*"
 zplug "zsh-users/zsh-autosuggestions"
 zplug "sorin-ionescu/prezto"
 
@@ -30,7 +30,9 @@ bindkey '^x^b' anyframe-widget-checkout-git-branch
 autoload -U compinit
 compinit
 zstyle ':completion:*:default' menu select=1
-zstyle ':prezto:module:prompt' theme 'steeef'
+#zstyle ':prezto:module:prompt' theme 'steeef'
+prompt steeef
+
 export HISTFILE=${HOME}/.zsh_history
 export HISTSIZE=1000
 export SAVEHIST=100000
