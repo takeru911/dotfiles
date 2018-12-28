@@ -36,7 +36,7 @@ prompt steeef
 export HISTFILE=${HOME}/.zsh_history
 export HISTSIZE=1000
 export SAVEHIST=100000
-
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=242'
 #prompt
 #autoload -Uz vcs_info
 #setopt prompt_subst
@@ -86,9 +86,18 @@ setopt prompt_subst
 # alias
 alias cgr=cd-gitroot
 # alias curl=/usr/local/bin/curl
-## git alias
+## git
 alias mm="git fetch -vp && git pull --rebase origin master"
-
+function ghc(){
+    if [ $# -eq 1 ]
+    then
+        SEARCH_WORD=$1
+        git --no-pager reflog | awk '$3 == "checkout:" && /moving from/ {print $8}' | uniq | grep ${SEARCH_WORD} | fzf | xargs git checkout
+    else
+        git --no-pager reflog | awk '$3 == "checkout:" && /moving from/ {print $8}' | uniq | head -n 30 | fzf | xargs git checkout
+    fi
+    
+}
 # opt
 setopt IGNOREEOF
 

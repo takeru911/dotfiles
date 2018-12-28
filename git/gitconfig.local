@@ -1,6 +1,7 @@
 [alias]
 	st = status
-	graph = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %
+	su = status -uno
+	tree = log --graph --format='%x09%an%x09%h %d %s'
 	gr = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
 	cm = commit
 	ch = checkout

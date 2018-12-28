@@ -1,0 +1,72 @@
+cd ..
+make build
+git grep JP
+python
+ls
+source vendor/bin/activate
+source vendor/venv/bin/activate.csh
+source vendor/venv/bin/activate
+source vendor/venv/bin/activate.fish
+ls
+git mv WIZARD_get_data_from_nz_define.tsv  WIZARD_get_data_from_rs_define.tsv
+git mv WIZARD_get_period_data_from_nz_define.tsv WIZARD_get_beginning_data_from_rs_define.tsv
+git mv  WIZARD_get_beginning_data_from_rs_define.tsv WIZARD_get_period_data_from_rs_define.tsv
+cd ..
+cd bin/
+cd ..
+cd conf/
+history | tail -n 10
+cd ../bin/
+ls
+ls | grep nz
+git mv get_period_data_from_nz.sh get_period_data_from_rs.sh
+cd ..
+ls
+cd conf/
+ls
+cd ..
+ls
+cd bin
+git ap
+git su
+git add get_period_data_from_rs.sh
+git cm -m "get_period_data_from_rsの向け先をredshiftに"
+git su
+git add load_period_data_to_ginedb.sh
+git cm -m "load_period_data_to_ginedbの向け先をredshiftに"
+ls ../conf/
+git mv get_each_table_data_from_nz.sh get_each_table_data_from_rs.sh
+git st
+git su
+git add get_each_table_data_from_rs.sh
+git cm -m "get_each_table_data_from_rsの向け先をredshiftに"
+git su
+git mv get_beginning_data_from_nz.sh  get_beginning_data_from_rs.sh 
+git mv ../conf/WIZARD_get_beginning_data_from_nz_define.tsv ../conf/WIZARD_get_beginning_data_from_rs_define.tsv
+git su
+git add get_beginning_data_from_rs.sh
+git add ../conf/WIZARD_get_beginning_data_from_rs_define.tsv
+git cm -m "get_beginning_data_from_rsの向け先をredshiftに"
+git su
+git add load_period_data_to_ginedb.sh
+git cm -m "load_period_data_to_ginedb.shの向け先をredshiftに"
+# On branch wizjl999ard_kpi_redshift_yeah
+git log
+git su
+git add load_period_data_to_ginedb.sh
+git cm -m "load_period_data_to_ginedb.shの向け先をredshiftに"
+git cm -m "load_period_data_to_ginedbの向け先をredshfitに"
+git add load_beginning_data_to_ginedb.sh 
+git cm -m "load_period_data_to_ginedb.shの向け先をredshiftに"
+git mv realtime_sales_get_data_from_nz.sh  realtime_sales_get_data_from_rs.sh 
+git su
+git add realtime_sales_get_data_from_rs.sh
+git cm -m "realtime_sales_get_data_from_rs.shの向け先をredshiftに"
+git mv realtime_use_sales_get_data_from_nz.sh  realtime_use_sales_get_data_from_rs.sh 
+git su
+git add realtime_use_sales_get_data_from_rs.sh
+git cm -m "realtime_use_sales_get_data_from_rs.shの向け先をredshiftに"
+git mv realtime_use_stones_get_data_from_nz.sh realtime_use_stones_get_data_from_rs.sh
+git su
+git add realtime_use_stones_get_data_from_rs.sh
+git cm -m "realtime_use_stones_get_data_from_rs.shの向け先をredshiftに"

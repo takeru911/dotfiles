@@ -4,6 +4,9 @@ PYTHON=python
 
 setup: setup/emacs setup/cask
 
+$(HOME)/junk-files:
+	mkdir $@
+
 setup/emacs: /usr/local/src/emacs-25.3.tar.gz /usr/local/bin/emacs
 	-ln -s $(HOME)/dotfiles/emacs/.emacs.d $(HOME)/.emacs.d 
 

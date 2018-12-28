@@ -39,4 +39,7 @@
 (setq show-paren-delay 0)
 (setq show-paren-style 'expression)
 
+;; カーソル行のハイライト
+(global-hl-line-mode t)
+
 (setq scroll-conservatively 1)

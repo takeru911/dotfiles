@@ -14,3 +14,7 @@
 (global-set-key (kbd "C-x <up>")    'windmove-up)
 (global-set-key (kbd "C-x <right>") 'windmove-right)
 (global-set-key (kbd "C-x g") 'magit-status)
+(global-set-key (kbd "C-x C-g C-h") 'highlight-symbol)
+(global-set-key (kbd "C-x C-g C-n") 'highlight-symbol-next)
+(global-set-key (kbd "C-x C-g C-p") 'highlight-symbol-prev)
+(global-set-key (kbd "C-x C-g C-d") 'highlight-symbol-remove-all)
