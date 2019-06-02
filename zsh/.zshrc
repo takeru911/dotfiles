@@ -105,19 +105,5 @@ if [ -e $HOME/dotfiles/zsh/.myzshrc ]; then
     source $HOME/dotfiles/zsh/.myzshrc
 fi
 
-# pet function
-if [ `which pet` ]; then
-  function prev() {
-    PREV=$(fc -lrn | head -n 1)
-    sh -c "pet new `printf %q "$PREV"`"
-  }
-  function pet-select() {
-    BUFFER=$(pet search --query "$LBUFFER")
-    CURSOR=$#BUFFER
-    zle redisplay
-  }
-  zle -N pet-select
-  bindkey '^s' pet-select  
-fi
 alias history-all="history 1"
 export LESS='-g -i -M -R -S -w -z-4 -m'

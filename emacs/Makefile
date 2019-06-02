@@ -12,7 +12,7 @@ setup/emacs: /usr/local/src/emacs-25.3.tar.gz /usr/local/bin/emacs
 
 /usr/local/bin/emacs:
 	cd /usr/local/src/; sudo tar -xf /usr/local/src/emacs-25.3.tar.gz
-	cd /usr/local/src/emacs-25.3 && sudo ./configure && sudo make && sudo make install
+	cd /usr/local/src/emacs-25.3 && sudo ./configure --with-x-toolkit=no --with-jpeg=no  && sudo make && sudo make install
 
 
 /usr/local/src/emacs-25.3.tar.gz:
