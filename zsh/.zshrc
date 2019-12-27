@@ -81,7 +81,8 @@ function rprompt-git-current-branch {
 }
 
 function copy_win_clip(){
-    win32yank.exe -o
+    BUFFER=${LBUFFER}$(win32yank.exe -o)${RBUFFER}
+    zle reset-prompt
 }
 zle -N copy_win_clip
 bindkey '^x^y' copy_win_clip
