@@ -38,5 +38,9 @@ install/win32yank:
 	@unzip $(HOME)/bin/win32yank-x64.zip win32yank.exe
 	@chmod +x $(HOME)/bin/win32yank.exe
 	@rm $(HOME)/bin/win32yank-x64.zip
+
+install/python:
+	cd ./python/; make install
+
 mdir:
 	mkdir -p $(HOME)/bin

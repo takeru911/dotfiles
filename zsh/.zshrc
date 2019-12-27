@@ -2,6 +2,7 @@
 export PATH=$PATH:${HOME}/bin
 export PATH=$PATH:${HOME}/.cask/bin
 export PATH=$PATH:${HOME}/.local/bin
+export PATH=${HOME}/miniconda3/bin:$PATH
 
 # Created by newuser for 5.0.2
 source ~/.zplug/init.zsh
