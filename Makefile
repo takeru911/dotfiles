@@ -1,5 +1,8 @@
 SHELL=/usr/bin/zsh
-install: install/zsh install/emacs
+install: mdir dep install install/win32yank install/zsh install/emacs
+
+dep:
+	sudo yum install wget unzip -y
 
 install/zsh: $(HOME)/.zplug clean
 	cp $(HOME)/dotfiles/zsh/init.zshrc $(HOME)/.zshrc
@@ -27,3 +30,13 @@ install/emacs:
 
 install/git:
 	cp ./git/.gitconfig $(HOME)/
+
+install/win32yank: VERSION=$(shell curl https://github.com/equalsraf/win32yank/releases/latest | awk -F"=" {'print $$2'} | sed -e 's/>.*//g' -e 's/"//g' -e 's/.*\///g')
+install/win32yank:
+	@echo "INSTALL VERSION: $(VERSION)"
+	@wget https://github.com/equalsraf/win32yank/releases/download/$(VERSION)/win32yank-x64.zip -O $(HOME)/bin/win32yank-x64.zip
+	@unzip $(HOME)/bin/win32yank-x64.zip win32yank.exe
+	@chmod +x $(HOME)/bin/win32yank.exe
+	@rm $(HOME)/bin/win32yank-x64.zip
+mdir:
+	mkdir -p $(HOME)/bin
