@@ -80,12 +80,19 @@ function rprompt-git-current-branch {
   echo "${branch_status}[$branch_name]"
 }
 
-function copy_win_clip(){
+function paste_win_clip(){
     BUFFER=${LBUFFER}$(win32yank.exe -o)${RBUFFER}
     zle reset-prompt
 }
+
+function copy_win_clip(){
+    echo ${BUFFER} | win32yank.exe -i
+}
+
+zle -N paste_win_clip
 zle -N copy_win_clip
-bindkey '^x^y' copy_win_clip
+bindkey '^x^y' paste_win_clip
+bindkey '^x^k' copy_win_clip
 # プロンプトが表示されるたびにプロンプト文字列を評価、置換する
 setopt prompt_subst
 
