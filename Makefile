@@ -12,7 +12,7 @@ install/zsh: $(HOME)/.zplug clean
 	ln -s $(HOME)/.zprezto/runcoms/zpreztorc $(HOME)/.zpreztorc
 	ln -s $(HOME)/.zprezto/runcoms/zprofile $(HOME)/.zprofile
 	ln -s $(HOME)/.zprezto/runcoms/zshenv $(HOME)/.zshenv
-	ln -s $(HOME)/.zprezto/runcoms/zshrc $(HOME)/.zshrc	
+	ln -s $(HOME)/.zprezto/runcoms/zshrc $(HOME)/.zshrc
 	echo "source $(HOME)/dotfiles/zsh/.zshrc" >> $(HOME)/.zshrc
 	source $(HOME)/.zshrc; \
 	zplug install
@@ -24,3 +24,6 @@ $(HOME)/.zplug:
 
 install/emacs:
 	cd ./emacs/; make setup
+
+install/git:
+	cp ./git/.gitconfig $(HOME)/

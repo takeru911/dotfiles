@@ -18,3 +18,9 @@
 (global-set-key (kbd "C-x C-g C-n") 'highlight-symbol-next)
 (global-set-key (kbd "C-x C-g C-p") 'highlight-symbol-prev)
 (global-set-key (kbd "C-x C-g C-d") 'highlight-symbol-remove-all)
+(global-set-key
+ (kbd "C-x C-w")
+ 'wsl-copy)
+(global-set-key
+ (kbd "C-x C-y")
+ 'copy-wsl)

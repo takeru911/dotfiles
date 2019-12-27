@@ -80,6 +80,11 @@ function rprompt-git-current-branch {
   echo "${branch_status}[$branch_name]"
 }
 
+function copy_win_clip(){
+    win32yank.exe -o
+}
+zle -N copy_win_clip
+bindkey '^x^y' copy_win_clip
 # プロンプトが表示されるたびにプロンプト文字列を評価、置換する
 setopt prompt_subst
 
@@ -98,6 +103,9 @@ function ghc(){
     fi
     
 }
+# win32yank
+alias wip="win32yank.exe -o"
+alias wic="win32yank.exe -i"
 # opt
 setopt IGNOREEOF
 
