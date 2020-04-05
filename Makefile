@@ -31,6 +31,9 @@ install/emacs:
 install/git:
 	cp ./git/.gitconfig $(HOME)/
 
+install/tmux:
+	cp ./tmux/.tmux.conf $(HOME)/
+
 install/win32yank: VERSION=$(shell curl https://github.com/equalsraf/win32yank/releases/latest | awk -F"=" {'print $$2'} | sed -e 's/>.*//g' -e 's/"//g' -e 's/.*\///g')
 install/win32yank:
 	@echo "INSTALL VERSION: $(VERSION)"

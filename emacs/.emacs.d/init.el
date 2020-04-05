@@ -52,7 +52,7 @@
 
 (defun copy-wsl()
   (interactive)
-  (insert (shell-command-to-string "win32yank.exe -o"))
+  (insert (shell-command-to-string "win32yank.exe -o --lf"))
 )
 
 (load-theme 'manoj-dark t)

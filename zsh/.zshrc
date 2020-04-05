@@ -82,7 +82,7 @@ function rprompt-git-current-branch {
 }
 
 function paste_win_clip(){
-    BUFFER=${LBUFFER}$(win32yank.exe -o)${RBUFFER}
+    BUFFER=${LBUFFER}$(win32yank.exe -o --lf)${RBUFFER}
     zle reset-prompt
 }
 
@@ -113,7 +113,7 @@ function ghc(){
     
 }
 # win32yank
-alias wip="win32yank.exe -o"
+alias wip="win32yank.exe -o --lf"
 alias wic="win32yank.exe -i"
 # opt
 setopt IGNOREEOF
