@@ -15,3 +15,9 @@
 	rh = reset HEAD
 	cmm = chechout master
 	df = diff origin master --name-only
+[core]
+        editor = emacs
+[merge]
+        ff = false
+[pull]
+        ff = only
