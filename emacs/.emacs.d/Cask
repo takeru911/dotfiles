@@ -2,6 +2,7 @@
 (source gnu)
 (source melpa)
 (source marmalade)
+(source org) 
 
 ;; requires
 ;;; ui
@@ -11,7 +12,7 @@
 (depends-on "whitespace")
 (depends-on "hlinum")
 (depends-on "volatile-highlights")
-(depends-on "indent-guide")
+(depends-on "idea-darkula-theme")
 
 ;;; helm
 (depends-on "helm")

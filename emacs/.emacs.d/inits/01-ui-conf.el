@@ -21,11 +21,6 @@
 
 (global-whitespace-mode 1)
 
-;;indent-guide
-(setq indent-guide-delay 0.1)
-(setq indent-guide-recursive t)
-(add-hook 'prog-mode-hook 'indent-guide-mode)
-
 ;;linum
 (global-linum-mode t)
 (hlinum-activate)

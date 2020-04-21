@@ -23,6 +23,9 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(cua-mode t nil (cua-base))
+ '(custom-safe-themes
+   (quote
+    ("420689cc31d01fe04b8e3adef87b8838ff52faa169e69ca4e863143ae9f3a9f9" default)))
  '(flycheck-display-errors-function (function flycheck-pos-tip-error-messages))
  '(google-translate-default-source-language "en")
  '(google-translate-default-target-language "ja")
@@ -55,4 +58,4 @@
   (insert (shell-command-to-string "win32yank.exe -o --lf"))
 )
 
-(load-theme 'manoj-dark t)
+(load-theme 'idea-darkula t)
