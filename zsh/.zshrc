@@ -38,6 +38,7 @@ export HISTFILE=${HOME}/.zsh_history
 export HISTSIZE=1000
 export SAVEHIST=100000
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=242'
+setopt GLOBDOTS
 #prompt
 #autoload -Uz vcs_info
 #setopt prompt_subst

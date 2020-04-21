@@ -39,6 +39,7 @@ install/win32yank:
 	@echo "INSTALL VERSION: $(VERSION)"
 	@wget https://github.com/equalsraf/win32yank/releases/download/$(VERSION)/win32yank-x64.zip -O $(HOME)/bin/win32yank-x64.zip
 	@unzip $(HOME)/bin/win32yank-x64.zip win32yank.exe
+	@mv win32yank.exe $(HOME)/bin/
 	@chmod +x $(HOME)/bin/win32yank.exe
 	@rm $(HOME)/bin/win32yank-x64.zip
 
