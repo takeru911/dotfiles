@@ -1,3 +1,6 @@
+# set language
+export LANG=ja_JP.UTF-8
+
 # User specific aliases and functions
 export PATH=$PATH:${HOME}/bin
 export PATH=$PATH:${HOME}/.cask/bin
