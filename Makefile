@@ -17,8 +17,7 @@ install/zsh: $(HOME)/.zplug clean
 	ln -s $(HOME)/.zprezto/runcoms/zshenv $(HOME)/.zshenv
 	ln -s $(HOME)/.zprezto/runcoms/zshrc $(HOME)/.zshrc
 	echo "source $(HOME)/dotfiles/zsh/.zshrc" >> $(HOME)/.zshrc
-	source $(HOME)/.zshrc; \
-	zplug install
+	source $(HOME)/.zshrc && \ zplug install
 clean:
 	rm -f $(HOME)/.zshrc $(HOME)/.zlogin $(HOME)/.zlogout $(HOME)/.zprofile $(HOME)/.zshenv $(HOME)/.zprofile $(HOME)/.zprezto $(HOME)/.zpreztorc
 
@@ -26,7 +25,7 @@ $(HOME)/.zplug:
 	curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh| zsh
 
 install/emacs:
-	cd ./emacs/; make setup
+	$(MAKE) -C emacs setup
 
 install/git:
 	cp ./git/.gitconfig $(HOME)/
