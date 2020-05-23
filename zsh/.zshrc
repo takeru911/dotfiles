@@ -116,9 +116,17 @@ function ghc(){
     fi
     
 }
-# win32yank
+## win32yank
 alias wip="win32yank.exe -o --lf"
 alias wic="win32yank.exe -i"
+
+alias a="awk"
+alias c="cd"
+alias e="emacs"
+alias g="git"
+alias h="head"
+alias p="pwd"
+
 # opt
 setopt IGNOREEOF
 
@@ -128,3 +136,20 @@ fi
 
 alias history-all="history 1"
 export LESS='-g -i -M -R -S -w -z-4 -m'
+
+nvm() {
+    # まず仮の nvm コマンドを unset
+    unset -f nvm
+
+    # nvm.sh をロード
+    # ここで本物の nvm コマンドが定義される
+    source "${NVM_DIR:-$HOME/.nvm}/nvm.sh"
+
+    # 仮の nvm コマンドに渡された引数を本物に受け渡す
+    nvm "$@"
+}
+
+NODE_DEFAULT=versions/node/v$(cat ${NVM_DIR:-$HOME/.nvm}/alias/default)
+PATH=${NVM_DIR:-$HOME/.nvm}/${NODE_DEFAULT}/bin:$PATH
+MANPATH=${NVM_DIR:-$HOME/.nvm}/${NODE_DEFAULT}/share/man:${MANPATH}
+export NODE_PATH=${NVM_DIR:-$HOME/.nvm}/${NODE_DEFAULT}/lib/node_modules
