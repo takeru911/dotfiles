@@ -1,5 +1,5 @@
 SHELL=/usr/bin/zsh
-install: mdir dep install install/win32yank install/zsh install/emacs
+install: mdir dep install install/win32yank install/zsh install/emacs install/tmux install/git install/python
 
 dep:
 	sudo yum install wget unzip -y
@@ -17,7 +17,8 @@ install/zsh: $(HOME)/.zplug clean
 	ln -s $(HOME)/.zprezto/runcoms/zshenv $(HOME)/.zshenv
 	ln -s $(HOME)/.zprezto/runcoms/zshrc $(HOME)/.zshrc
 	echo "source $(HOME)/dotfiles/zsh/.zshrc" >> $(HOME)/.zshrc
-	source $(HOME)/.zshrc && \ zplug install
+	-source $(HOME)/.zshrc && zplug install
+
 clean:
 	rm -f $(HOME)/.zshrc $(HOME)/.zlogin $(HOME)/.zlogout $(HOME)/.zprofile $(HOME)/.zshenv $(HOME)/.zprofile $(HOME)/.zprezto $(HOME)/.zpreztorc
 
@@ -31,10 +32,13 @@ install/git:
 	cp ./git/.gitconfig $(HOME)/
 
 install/tmux:
+	sudo yum install -y tmux
 	cp ./tmux/.tmux.conf $(HOME)/
 
-install/win32yank: VERSION=$(shell curl https://github.com/equalsraf/win32yank/releases/latest | awk -F"=" {'print $$2'} | sed -e 's/>.*//g' -e 's/"//g' -e 's/.*\///g')
-install/win32yank:
+install/win32yank: $(HOME)/bin/win32yank.exe
+
+$(HOME)/bin/win32yank.exe: VERSION=$(shell curl https://github.com/equalsraf/win32yank/releases/latest | awk -F"=" {'print $$2'} | sed -e 's/>.*//g' -e 's/"//g' -e 's/.*\///g')
+$(HOME)/bin/win32yank.exe:
 	@echo "INSTALL VERSION: $(VERSION)"
 	@wget https://github.com/equalsraf/win32yank/releases/download/$(VERSION)/win32yank-x64.zip -O $(HOME)/bin/win32yank-x64.zip
 	@unzip $(HOME)/bin/win32yank-x64.zip win32yank.exe
@@ -43,7 +47,7 @@ install/win32yank:
 	@rm $(HOME)/bin/win32yank-x64.zip
 
 install/python:
-	cd ./python/; make install
+	make -C python install
 
 mdir:
 	mkdir -p $(HOME)/bin

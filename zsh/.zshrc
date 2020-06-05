@@ -148,8 +148,9 @@ nvm() {
     # 仮の nvm コマンドに渡された引数を本物に受け渡す
     nvm "$@"
 }
-
-NODE_DEFAULT=versions/node/v$(cat ${NVM_DIR:-$HOME/.nvm}/alias/default)
-PATH=${NVM_DIR:-$HOME/.nvm}/${NODE_DEFAULT}/bin:$PATH
-MANPATH=${NVM_DIR:-$HOME/.nvm}/${NODE_DEFAULT}/share/man:${MANPATH}
-export NODE_PATH=${NVM_DIR:-$HOME/.nvm}/${NODE_DEFAULT}/lib/node_modules
+if [ -e ${HOME}/.nvm ]; then
+  NODE_DEFAULT=versions/node/v$(cat ${NVM_DIR:-$HOME/.nvm}/alias/default)
+  PATH=${NVM_DIR:-$HOME/.nvm}/${NODE_DEFAULT}/bin:$PATH
+  MANPATH=${NVM_DIR:-$HOME/.nvm}/${NODE_DEFAULT}/share/man:${MANPATH}
+  export NODE_PATH=${NVM_DIR:-$HOME/.nvm}/${NODE_DEFAULT}/lib/node_modules
+fi

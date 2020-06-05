@@ -1,7 +1,8 @@
 INSTALL_FILE:=/tmp/Miniconda3-latest-Linux-x86_64.sh
 
+install: $(HOME)/miniconda3
 
-install: $(INSTALL_FILE)
+$(HOME)/miniconda3: $(INSTALL_FILE)
 	sh $(INSTALL_FILE)
 
 $(INSTALL_FILE):

@@ -7,7 +7,7 @@ setup: setup/emacs setup/cask
 $(HOME)/junk-files:
 	mkdir $@
 
-setup/emacs: /usr/local/src/emacs-26.3.tar.gz dep /usr/local/bin/emacs
+setup/emacs: dep /usr/local/bin/emacs
 	rm -rf $(HOME)/.emacs.d 
 	-ln -s $(HOME)/dotfiles/emacs/.emacs.d $(HOME)/.emacs.d 
 
@@ -15,7 +15,7 @@ dep:
 	sudo yum -y groupinstall "Development Tools"
 	sudo yum -y install gnutls-devel ncurses-devel make
 
-/usr/local/bin/emacs:
+/usr/local/bin/emacs: /usr/local/src/emacs-26.3.tar.gz
 	cd /usr/local/src/; sudo tar -xf /usr/local/src/emacs-26.3.tar.gz
 	cd /usr/local/src/emacs-26.3 && sudo ./configure --with-x-toolkit=no --with-jpeg=no  && sudo make && sudo make install
 
