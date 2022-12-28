@@ -49,5 +49,14 @@ $(HOME)/bin/win32yank.exe:
 install/python:
 	make -C python install
 
+install/wsl:
+	sudo cp ./wsl/wsl.conf /etc/
+
+install/ghq:
+	wget -P /tmp/ https://github.com/x-motemen/ghq/releases/download/v1.2.1/ghq_linux_amd64.zip
+	unzip /tmp/ghq_linux_amd64.zip
+	mv ./ghq_linux_amd64/ghq $(HOME)/bin/
+	rm -rf ghq_linux_amd64
 mdir:
 	mkdir -p $(HOME)/bin
+

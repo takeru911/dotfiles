@@ -1,12 +1,14 @@
 INSTALL_FILE:=/tmp/Miniconda3-latest-Linux-x86_64.sh
 
-install: $(HOME)/miniconda3 install/pipx
+install: install/python install/pyenv install/pipx
 
-$(HOME)/miniconda3: $(INSTALL_FILE)
-	sh $(INSTALL_FILE)
+install/python:
+	sudo dnf install python39
+	ln -s /usr/bin/python3.9 /usr/bin/python
+	ln -s /usr/bin/pip3.9 /usr/bin/pip
 
-$(INSTALL_FILE):
-	@wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O $(INSTALL_FILE)
+install/pyenv:
+	curl https://pyenv.run | bash
 
 install/pipx:
 	pip install --user pipx

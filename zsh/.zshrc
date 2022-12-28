@@ -1,5 +1,7 @@
 # set language
 export LANG=ja_JP.UTF-8
+export LC_ALL=ja_JP.UTF-8
+export LANGUAGE=ja_JP.UTF-8
 
 # User specific aliases and functions
 export PATH=$PATH:${HOME}/bin
