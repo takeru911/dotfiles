@@ -156,3 +156,19 @@ if [ -e ${HOME}/.nvm ]; then
   MANPATH=${NVM_DIR:-$HOME/.nvm}/${NODE_DEFAULT}/share/man:${MANPATH}
   export NODE_PATH=${NVM_DIR:-$HOME/.nvm}/${NODE_DEFAULT}/lib/node_modules
 fi
+
+
+frepo() {
+  local dir
+  dir=$(ghq list > /dev/null | fzf-tmux --reverse +m) &&
+    cd $(ghq root)/$dir
+}
+
+if [ -e ${HOME}/.pyenv ]; then
+  export PYENV_ROOT="$HOME/.pyenv"
+  export PATH="$PYENV_ROOT/bin:$PATH"
+  export PATH="$PYENV_ROOT/shims:$PATH"
+  eval "$(pyenv virtualenv-init -)"
+  eval "$(pyenv init --path)"
+  eval "$(pyenv init -)"
+fi
