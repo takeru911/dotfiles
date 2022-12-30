@@ -1,29 +1,23 @@
 SHELL=/usr/bin/zsh
-install: mdir dep install install/win32yank install/zsh install/emacs install/tmux install/git install/python
+install: mdir dep install install/zsh install/emacs install/tmux install/git install/python
 
 dep:
 	sudo yum install wget unzip -y
 
-install/zsh: $(HOME)/.zplug clean
-	cp $(HOME)/dotfiles/zsh/init.zshrc $(HOME)/.zshrc
-	-source $(HOME)/.zshrc; \
-	zplug install
-	rm $(HOME)/.zshrc
-	ln -s $(HOME)/.zplug/repos/sorin-ionescu/prezto $(HOME)/.zprezto
-	ln -s $(HOME)/.zprezto/runcoms/zlogin $(HOME)/.zlogin
-	ln -s $(HOME)/.zprezto/runcoms/zlogout $(HOME)/.zlogout
-	ln -s $(HOME)/.zprezto/runcoms/zpreztorc $(HOME)/.zpreztorc
-	ln -s $(HOME)/.zprezto/runcoms/zprofile $(HOME)/.zprofile
-	ln -s $(HOME)/.zprezto/runcoms/zshenv $(HOME)/.zshenv
-	ln -s $(HOME)/.zprezto/runcoms/zshrc $(HOME)/.zshrc
-	echo "source $(HOME)/dotfiles/zsh/.zshrc" >> $(HOME)/.zshrc
-	-source $(HOME)/.zshrc && zplug install
+install/zsh: install/cli-tools clean/zsh
+	curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
+	@echo "source $(HOME)/dotfiles/zsh/.zshrc" >| $(HOME)/.zshrc
+	cp $(HOME)/dotfiles/zsh/.zimrc $(HOME)/.zimrc
+	/usr/bin/zsh $(HOME)/.zim/zimfw.zsh install
+	/usr/bin/zsh $(HOME)/.zim/zimfw.zsh update
 
-clean:
-	rm -f $(HOME)/.zshrc $(HOME)/.zlogin $(HOME)/.zlogout $(HOME)/.zprofile $(HOME)/.zshenv $(HOME)/.zprofile $(HOME)/.zprezto $(HOME)/.zpreztorc
+install/cli-tools:
+	$(MAKE) -C cli-tools install
 
-$(HOME)/.zplug:
-	curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh| zsh
+clean/zsh:
+	rm -f $(HOME)/.zshrc
+	rm -f $(HOME)/.zimrc
+	rm -fr $(HOME)/.zim
 
 install/emacs:
 	$(MAKE) -C emacs setup
@@ -35,28 +29,12 @@ install/tmux:
 	sudo yum install -y tmux
 	cp ./tmux/.tmux.conf $(HOME)/
 
-install/win32yank: $(HOME)/bin/win32yank.exe
-
-$(HOME)/bin/win32yank.exe: VERSION=$(shell curl https://github.com/equalsraf/win32yank/releases/latest | awk -F"=" {'print $$2'} | sed -e 's/>.*//g' -e 's/"//g' -e 's/.*\///g')
-$(HOME)/bin/win32yank.exe:
-	@echo "INSTALL VERSION: $(VERSION)"
-	@wget https://github.com/equalsraf/win32yank/releases/download/$(VERSION)/win32yank-x64.zip -O $(HOME)/bin/win32yank-x64.zip
-	@unzip $(HOME)/bin/win32yank-x64.zip win32yank.exe
-	@mv win32yank.exe $(HOME)/bin/
-	@chmod +x $(HOME)/bin/win32yank.exe
-	@rm $(HOME)/bin/win32yank-x64.zip
-
 install/python:
 	make -C python install
 
 install/wsl:
 	sudo cp ./wsl/wsl.conf /etc/
 
-install/ghq:
-	wget -P /tmp/ https://github.com/x-motemen/ghq/releases/download/v1.2.1/ghq_linux_amd64.zip
-	unzip /tmp/ghq_linux_amd64.zip
-	mv ./ghq_linux_amd64/ghq $(HOME)/bin/
-	rm -rf ghq_linux_amd64
 mdir:
-	mkdir -p $(HOME)/bin
+	mkdir -p $(HOME)/.local/bin
 

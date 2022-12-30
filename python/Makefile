@@ -4,8 +4,8 @@ install: install/python install/pyenv install/pipx
 
 install/python:
 	sudo dnf install python39
-	ln -s /usr/bin/python3.9 /usr/bin/python
-	ln -s /usr/bin/pip3.9 /usr/bin/pip
+	-ln -s /usr/bin/python3.9 /usr/bin/python
+	-ln -s /usr/bin/pip3.9 /usr/bin/pip
 
 install/pyenv:
 	curl https://pyenv.run | bash

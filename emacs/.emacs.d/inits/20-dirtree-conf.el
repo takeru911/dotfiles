@@ -1,2 +1,0 @@
-;;dirtre
-(require 'dirtree)
