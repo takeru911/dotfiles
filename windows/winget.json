@@ -10,7 +10,10 @@
           "PackageIdentifier" : "Git.Git"
         },
 				{
-					"PackageIdentifier" : "JetBrains.IntelliJIDEA.Ultimate"
+					"PackageIdentifier" : "JetBrains.PyCharm.Professional"
+				},
+        {
+					"PackageIdentifier" : "JetBrains.DataGrip"
 				},
 				{
 					"PackageIdentifier" : "Schezo.Lhaplus"
