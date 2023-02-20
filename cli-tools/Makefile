@@ -59,7 +59,7 @@ $(LOCAL_BIN)/win32yank.exe:
 	unzip /tmp/win32yank-x64.zip -d /tmp/
 	mv /tmp/win32yank.exe $(LOCAL_BIN)
 	chmod +x $(LOCAL_BIN)/win32yank.exe
-	rm $(HOME)/bin/win32yank-x64.zip
+	rm /tmp/win32yank-x64.zip
 $(LOCAL_BIN)/ghq:
 	wget -P /tmp/ https://github.com/x-motemen/ghq/releases/download/v1.2.1/ghq_linux_amd64.zip
 	unzip /tmp/ghq_linux_amd64.zip -d /tmp/

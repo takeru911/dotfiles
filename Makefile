@@ -34,6 +34,9 @@ install/python:
 
 install/wsl:
 	sudo cp ./wsl/wsl.conf /etc/
+	sudo dnf install setxkbmap
+	sudo setxkbmap jp
+
 
 mdir:
 	mkdir -p $(HOME)/.local/bin
