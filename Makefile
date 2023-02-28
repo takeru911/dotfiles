@@ -10,6 +10,8 @@ install/zsh: install/cli-tools clean/zsh
 	cp $(HOME)/dotfiles/zsh/.zimrc $(HOME)/.zimrc
 	/usr/bin/zsh $(HOME)/.zim/zimfw.zsh install
 	/usr/bin/zsh $(HOME)/.zim/zimfw.zsh update
+	@mkdir -p $(HOME)/.local/lib
+	git clone --depth 1 https://github.com/Aloxaf/fzf-tab.git $(HOME)/.local/lib/fzf-tab
 
 install/cli-tools:
 	$(MAKE) -C cli-tools install
@@ -36,6 +38,8 @@ install/wsl:
 	sudo cp ./wsl/wsl.conf /etc/
 	sudo dnf install setxkbmap
 	sudo setxkbmap jp
+	sudo dnf install xinit
+	sudo cp ./xinit/xinitrc ~/.xinitrc
 
 
 mdir:

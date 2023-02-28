@@ -575,11 +575,13 @@ before packages are loaded."
   (global-set-key "\C-x\c" 'server-edit)
   (global-set-key "\C-x\j\l" 'goto-line)
   (global-set-key "\C-i" 'indent-region)
+  (global-set-key "[zenkaku-hankaku]" 'toggle-input-method)
   (setq whitespace-style '(face           ; faceで可視化
                            tabs           ; タブ
                            tab-mark
                            ))
   (setq linum-format "%4d")
+  (smartparens-mode t)
 
 )
 
