@@ -4,11 +4,11 @@
 	tree = log --graph --format='%x09%an%x09%h %d %s'
 	gr = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
 	cm = commit
-	ch = checkout
+	ch = switch
 	fv = fetch -vp
 	prb = pull --rebase origin master -v
 	pr = pull origin master
-	cb = checkout -b
+	cb = switch -c
 	ap = add -p
 	pu = push origin HEAD
 	bye = checkout -- .

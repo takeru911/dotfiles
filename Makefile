@@ -2,7 +2,7 @@ SHELL=/usr/bin/zsh
 install: mdir dep install install/zsh install/emacs install/tmux install/git install/python
 
 dep:
-	sudo yum install wget unzip -y
+	sudo yum install wget unzip glibc-langpack-ja -y
 
 install/zsh: install/cli-tools clean/zsh
 	curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
@@ -11,6 +11,7 @@ install/zsh: install/cli-tools clean/zsh
 	/usr/bin/zsh $(HOME)/.zim/zimfw.zsh install
 	/usr/bin/zsh $(HOME)/.zim/zimfw.zsh update
 	@mkdir -p $(HOME)/.local/lib
+	rm -rf $(HOME)/.local/lib/fzf-tab
 	git clone --depth 1 https://github.com/Aloxaf/fzf-tab.git $(HOME)/.local/lib/fzf-tab
 
 install/cli-tools:

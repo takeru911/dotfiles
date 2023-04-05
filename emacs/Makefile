@@ -3,7 +3,7 @@ VERSION:=28.2
 
 .PHONY: setup/emacs
 
-setup: setup/emacs setup/cask
+setup: setup/emacs
 
 $(HOME)/junk-files:
 	mkdir $@
@@ -18,16 +18,10 @@ dep:
 	sudo dnf -y install gnutls-devel ncurses-devel make
 	sudo dnf -y install gtk3-devel.x86_64
 	sudo dnf -y install dnf-plugins-core epel-release
-	sudo dnf config-manager --set-enabled powertools
+	sudo dnf config-manager --set-enabled crb
 	sudo dnf -y install libjpeg-devel giflib-devel libtiff-devel libXpm-devel
-	sudo dnf --enablerepo=epel -y install fcitx
-	cat << EOS > ~/.profile\
-export GTK_IM_MODULE=fcitx\
-export QT_IM_MODULE=fcitx\
-export XMODIFIERS=@im=fcitx\
-export DefaultIMModule=fcitx\
-fcitx-autostart &> /dev/null\
-  EOS
+	sudo dnf --enablerepo=epel -y install ibus
+	cp $(HOME)/dotfiles/emacs/.profile ~/
 
 /usr/local/bin/emacs: /usr/local/src/emacs-$(VERSION).tar.gz
 	cd /usr/local/src/; sudo tar -xf /usr/local/src/emacs-$(VERSION).tar.gz
