@@ -6,18 +6,16 @@
 	cm = commit
 	ch = switch
 	fv = fetch -vp
-	prb = pull --rebase origin master -v
-	pr = pull origin master
+	prb = pull --rebase origin main -v
+	pr = pull origin main
 	cb = switch -c
 	ap = add -p
 	pu = push origin HEAD
 	bye = checkout -- .
 	rh = reset HEAD
-	cmm = chechout master
-	df = diff origin master --name-only
+	cmm = chechout maain
+	df = diff origin main --name-only
 [core]
         editor = emacs
 [merge]
         ff = false
-[pull]
-        ff = only

@@ -147,7 +147,7 @@ eval "$(direnv hook zsh)"
 
 # aliases
 alias history-all="history 1"
-alias mm="git fetch -vp && git pull --rebase origin master"
+alias mm="git fetch -vp && git pull --rebase origin main"
 alias a="awk"
 alias c="cd"
 alias e="emacs"
