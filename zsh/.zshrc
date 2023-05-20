@@ -177,7 +177,7 @@ source ${ZIM_HOME}/init.zsh
 # zsh-history-substring-search
 #
 
-
+export GPG_TTY=$(tty)
 zmodload -F zsh/terminfo +p:terminfo
 # Bind ^[[A/^[[B manually so up/down works both before and after zle-line-init
 bindkey $terminfo[kcuu1] history-substring-search-up
